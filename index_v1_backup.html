@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagetear — Revenue-driving copy for startups</title>
+<meta name="description" content="Landing pages, emails, ads, video scripts, and everything your team needs to grow. Written by a conversion pro. Delivered in 48 hours.">
+<link rel="icon" type="image/png" href="ptmetaicon.png">
+<meta property="og:title" content="Pagetear — Revenue-driving copy for startups">
+<meta property="og:description" content="Landing pages, emails, ads, video scripts, and everything your team needs to grow. Written by a conversion pro. Delivered in 48 hours.">
+<meta property="og:image" content="ptmetaicon.png">
+<style>
+@font-face{font-family:'Geist';src:url('Geist-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist';src:url('Geist-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist';src:url('Geist-SemiBoldItalic.otf') format('opentype');font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:'Geist';src:url('Geist-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist';src:url('Geist-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist';src:url('Geist-ExtraLight.otf') format('opentype');font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist';src:url('Geist-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--white:#ffffff;
+--black:#0a0a0a;
+--gray-100:#f7f7f7;
+--gray-200:#ebebeb;
+--gray-300:#dfdfdf;
+--gray-400:#b0b0b0;
+--gray-500:#8a8a8a;
+--gray-600:#6a6a6a;
+--font:'Geist',system-ui,-apple-system,sans-serif;
+--max-w:1200px;
+--section-py:clamp(80px,10vw,140px);
+--ease-out:cubic-bezier(0.16,1,0.3,1);
+--ease-in-out:cubic-bezier(0.65,0,0.35,1);
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+body{font-family:var(--font);color:var(--black);background:var(--white);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* ═══ REVEAL ANIMATIONS ═══ */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+.reveal-delay-5{transition-delay:.5s}
+.reveal-stagger > *{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.reveal-stagger.visible > *:nth-child(1){transition-delay:.05s}
+.reveal-stagger.visible > *:nth-child(2){transition-delay:.1s}
+.reveal-stagger.visible > *:nth-child(3){transition-delay:.15s}
+.reveal-stagger.visible > *:nth-child(4){transition-delay:.2s}
+.reveal-stagger.visible > *:nth-child(5){transition-delay:.25s}
+.reveal-stagger.visible > *:nth-child(6){transition-delay:.3s}
+.reveal-stagger.visible > *{opacity:0;transform:translateY(24px)}
+.reveal-stagger.visible > *{opacity:1;transform:translateY(0)}
+
+/* ═══ NAVIGATION ═══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:border-color .3s ease}
+.nav.scrolled{border-bottom-color:var(--gray-200)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 clamp(24px,4vw,48px);height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo svg{height:22px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:clamp(20px,3vw,40px)}
+.nav-links a{font-size:14px;font-weight:400;color:var(--gray-600);letter-spacing:-.01em;transition:color .25s ease}
+.nav-links a:hover{color:var(--black)}
+.nav-cta{font-size:14px;font-weight:500;color:var(--white);background:var(--black);padding:8px 20px;border-radius:100px;letter-spacing:-.01em;transition:all .3s var(--ease-out)}
+.nav-cta:hover{background:#333;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.mobile-toggle span{display:block;width:20px;height:1.5px;background:var(--black);transition:all .3s ease}
+
+/* ═══ HERO ═══ */
+.hero{padding:clamp(120px,15vw,180px) clamp(24px,4vw,48px) clamp(60px,8vw,100px);max-width:var(--max-w);margin:0 auto;text-align:center}
+.hero-headline{font-size:clamp(40px,6.5vw,80px);font-weight:500;letter-spacing:-.04em;line-height:1.05;margin-bottom:24px}
+.hero-sub{font-size:clamp(16px,1.8vw,20px);font-weight:400;color:var(--gray-600);max-width:600px;margin:0 auto 40px;line-height:1.6;letter-spacing:-.01em}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:500;color:var(--white);background:var(--black);padding:14px 32px;border-radius:100px;letter-spacing:-.01em;transition:all .35s var(--ease-out);position:relative;overflow:hidden}
+.hero-cta::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1) 0%,transparent 50%);opacity:0;transition:opacity .3s ease}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.hero-cta:hover::after{opacity:1}
+.hero-cta svg{width:16px;height:16px;transition:transform .3s var(--ease-out)}
+.hero-cta:hover svg{transform:translateX(3px)}
+.hero-stats{display:flex;justify-content:center;gap:clamp(32px,5vw,64px);margin-top:clamp(48px,6vw,80px);padding-top:clamp(40px,5vw,64px);border-top:1px solid var(--gray-200)}
+.hero-stat{text-align:center}
+.hero-stat-number{font-size:clamp(28px,3.5vw,44px);font-weight:500;letter-spacing:-.03em;line-height:1.1}
+.hero-stat-label{font-size:13px;font-weight:400;color:var(--gray-500);letter-spacing:.02em;text-transform:uppercase;margin-top:6px}
+
+/* ═══ LOGOS BAR ═══ */
+.logos-bar{padding:clamp(40px,5vw,60px) 0;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);overflow:hidden}
+.logos-track{display:flex;align-items:center;gap:clamp(40px,5vw,72px);animation:scrollLogos 30s linear infinite;width:max-content}
+.logos-track img,.logos-track svg{height:20px;width:auto;opacity:.35;filter:grayscale(100%);transition:opacity .3s ease}
+.logos-track img:hover,.logos-track svg:hover{opacity:.6}
+@keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ SERVICES MARQUEE ═══ */
+.services-marquee{padding:clamp(48px,6vw,80px) 0;overflow:hidden}
+.services-marquee-label{text-align:center;font-size:13px;font-weight:500;color:var(--gray-400);letter-spacing:.08em;text-transform:uppercase;margin-bottom:32px}
+.marquee-row{display:flex;gap:12px;animation:marqueeScroll 60s linear infinite;width:max-content}
+.marquee-row.reverse{animation-direction:reverse}
+.marquee-tag{font-size:14px;font-weight:400;color:var(--gray-600);padding:10px 20px;border:1px solid var(--gray-200);border-radius:100px;white-space:nowrap;transition:all .3s ease;letter-spacing:-.01em}
+.marquee-tag:hover{border-color:var(--black);color:var(--black);transform:translateY(-2px)}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-wrapper{display:flex;flex-direction:column;gap:12px}
+
+/* ═══ TESTIMONIAL BLOCK ═══ */
+.testimonial-block{padding:var(--section-py) clamp(24px,4vw,48px);max-width:var(--max-w);margin:0 auto}
+.testimonial-inner{max-width:800px;margin:0 auto;text-align:center}
+.testimonial-quote{font-size:clamp(18px,2.2vw,24px);font-weight:400;line-height:1.7;letter-spacing:-.015em;color:var(--black);margin-bottom:32px;position:relative}
+.testimonial-quote::before{content:'\201C';position:absolute;top:-40px;left:50%;transform:translateX(-50%);font-size:80px;font-weight:300;color:var(--gray-200);line-height:1}
+.testimonial-author{display:flex;align-items:center;justify-content:center;gap:16px}
+.testimonial-avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;filter:grayscale(30%)}
+.testimonial-meta{text-align:left}
+.testimonial-name{font-size:15px;font-weight:500;letter-spacing:-.01em}
+.testimonial-company{display:flex;align-items:center;gap:8px;margin-top:2px}
+.testimonial-company svg,.testimonial-company img{height:16px;width:auto;opacity:.5}
+
+/* ═══ SECTION HEADERS ═══ */
+.section{padding:var(--section-py) clamp(24px,4vw,48px)}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.section-label{font-size:13px;font-weight:500;color:var(--gray-400);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.section-title{font-size:clamp(32px,4.5vw,56px);font-weight:500;letter-spacing:-.035em;line-height:1.1;margin-bottom:16px}
+.section-title strong{font-weight:500}
+.section-subtitle{font-size:clamp(16px,1.6vw,19px);font-weight:400;color:var(--gray-600);max-width:560px;line-height:1.6;letter-spacing:-.01em}
+
+/* ═══ PROBLEM CARDS ═══ */
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:clamp(40px,5vw,64px);background:var(--gray-200);border:1px solid var(--gray-200);border-radius:16px;overflow:hidden}
+.problem-card{background:var(--white);padding:clamp(28px,3vw,40px);transition:all .4s var(--ease-out);position:relative}
+.problem-card::after{content:'';position:absolute;bottom:0;left:clamp(28px,3vw,40px);right:clamp(28px,3vw,40px);height:0;background:var(--black);transition:height .3s var(--ease-out)}
+.problem-card:hover{background:var(--gray-100)}
+.problem-card:hover::after{height:2px}
+.problem-card-title{font-size:16px;font-weight:500;letter-spacing:-.02em;margin-bottom:10px}
+.problem-card-desc{font-size:14px;font-weight:400;color:var(--gray-600);line-height:1.6;letter-spacing:-.005em}
+
+/* ═══ SOLUTION CARDS ═══ */
+.solution-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:clamp(40px,5vw,64px);background:var(--gray-200);border:1px solid var(--gray-200);border-radius:16px;overflow:hidden}
+.solution-card{background:var(--white);padding:clamp(28px,3vw,40px);transition:all .4s var(--ease-out);position:relative}
+.solution-card:hover{background:var(--gray-100)}
+.solution-icon{width:36px;height:36px;border:1px solid var(--gray-200);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:all .3s ease}
+.solution-card:hover .solution-icon{border-color:var(--black)}
+.solution-icon svg{width:18px;height:18px;stroke:var(--black);fill:none;stroke-width:1.5}
+.solution-card-title{font-size:16px;font-weight:500;letter-spacing:-.02em;margin-bottom:10px}
+.solution-card-desc{font-size:14px;font-weight:400;color:var(--gray-600);line-height:1.6;letter-spacing:-.005em}
+
+/* ═══ HOW IT WORKS ═══ */
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,48px);margin-top:clamp(40px,5vw,64px);counter-reset:step}
+.how-step{counter-increment:step;position:relative;padding-top:48px}
+.how-step::before{content:counter(step,decimal-leading-zero);font-size:13px;font-weight:500;color:var(--gray-400);letter-spacing:.04em;position:absolute;top:0;left:0}
+.how-step-line{width:100%;height:1px;background:var(--gray-200);position:absolute;top:24px;left:0}
+.how-step-dot{width:8px;height:8px;border-radius:50%;background:var(--black);position:absolute;top:20px;left:0;transition:transform .3s var(--ease-out)}
+.how-step:hover .how-step-dot{transform:scale(1.5)}
+.how-step-title{font-size:clamp(20px,2.2vw,26px);font-weight:500;letter-spacing:-.025em;margin-bottom:12px}
+.how-step-desc{font-size:15px;font-weight:400;color:var(--gray-600);line-height:1.65;letter-spacing:-.005em}
+
+/* ═══ FEATURES ═══ */
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:clamp(40px,5vw,64px);background:var(--gray-200);border:1px solid var(--gray-200);border-radius:16px;overflow:hidden}
+.feature-card{background:var(--white);padding:clamp(32px,3.5vw,48px);transition:all .4s var(--ease-out)}
+.feature-card:hover{background:var(--gray-100)}
+.feature-card-title{font-size:clamp(20px,2vw,24px);font-weight:500;letter-spacing:-.025em;margin-bottom:12px}
+.feature-card-desc{font-size:15px;font-weight:400;color:var(--gray-600);line-height:1.65;letter-spacing:-.005em;margin-bottom:20px}
+.feature-tags{display:flex;flex-wrap:wrap;gap:8px}
+.feature-tag{font-size:12px;font-weight:400;color:var(--gray-500);padding:6px 14px;border:1px solid var(--gray-200);border-radius:100px;letter-spacing:-.005em;transition:all .25s ease}
+.feature-card:hover .feature-tag{border-color:var(--gray-300)}
+.feature-card-full{grid-column:1/-1}
+
+/* ═══ DELIVERABLES TICKER ═══ */
+.deliverables{padding:clamp(48px,6vw,80px) 0;overflow:hidden;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+.deliverables-label{text-align:center;font-size:13px;font-weight:500;color:var(--gray-400);letter-spacing:.08em;text-transform:uppercase;margin-bottom:32px}
+.deliverables-track{display:flex;gap:16px;animation:delivScroll 40s linear infinite;width:max-content}
+.deliverables-item{font-size:15px;font-weight:400;color:var(--black);padding:12px 24px;background:var(--gray-100);border-radius:100px;white-space:nowrap;letter-spacing:-.01em;transition:all .3s ease}
+.deliverables-item:hover{background:var(--black);color:var(--white)}
+@keyframes delivScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ RESULTS ═══ */
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:clamp(40px,5vw,64px);background:var(--gray-200);border:1px solid var(--gray-200);border-radius:16px;overflow:hidden}
+.result-card{background:var(--white);padding:clamp(24px,2.5vw,36px);text-align:center;transition:all .4s var(--ease-out);cursor:default}
+.result-card:hover{background:var(--gray-100)}
+.result-number{font-size:clamp(24px,3vw,36px);font-weight:500;letter-spacing:-.03em;line-height:1.1;margin-bottom:8px}
+.result-label{font-size:13px;font-weight:400;color:var(--gray-600);line-height:1.5;letter-spacing:-.005em}
+
+/* ═══ TESTIMONIAL MODALS ═══ */
+.testimonials-pair{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,3vw,32px);margin-top:clamp(40px,5vw,64px);max-width:var(--max-w);margin-left:auto;margin-right:auto}
+.testimonial-card{border:1px solid var(--gray-200);border-radius:16px;padding:clamp(28px,3vw,40px);transition:all .4s var(--ease-out);position:relative;overflow:hidden}
+.testimonial-card::before{content:'';position:absolute;top:0;left:0;right:0;height:0;background:var(--gray-100);transition:height .4s var(--ease-out);z-index:0}
+.testimonial-card:hover::before{height:100%}
+.testimonial-card > *{position:relative;z-index:1}
+.testimonial-card:hover{border-color:var(--gray-300);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.04)}
+.testimonial-card-quote{font-size:15px;font-weight:400;line-height:1.7;letter-spacing:-.01em;color:var(--black);margin-bottom:24px}
+.testimonial-card-author{display:flex;align-items:center;gap:12px}
+.testimonial-card-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.testimonial-card-name{font-size:14px;font-weight:500;letter-spacing:-.01em}
+.testimonial-card-role{font-size:13px;color:var(--gray-500);letter-spacing:-.005em}
+
+/* ═══ PRICING ═══ */
+.pricing-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2vw,24px);margin-top:clamp(40px,5vw,64px);max-width:840px;margin-left:auto;margin-right:auto}
+.pricing-card{border:1px solid var(--gray-200);border-radius:16px;padding:clamp(32px,3.5vw,48px);transition:all .4s var(--ease-out);position:relative}
+.pricing-card.featured{border-color:var(--black);background:var(--black);color:var(--white)}
+.pricing-card.featured .pricing-feature{color:rgba(255,255,255,.7)}
+.pricing-card.featured .pricing-feature svg{stroke:rgba(255,255,255,.5)}
+.pricing-card.featured .pricing-label{color:rgba(255,255,255,.5)}
+.pricing-card.featured .pricing-divider{background:rgba(255,255,255,.15)}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+.pricing-card.featured:hover{box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.pricing-plan{font-size:14px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-bottom:20px}
+.pricing-amount{font-size:clamp(40px,5vw,56px);font-weight:500;letter-spacing:-.04em;line-height:1}
+.pricing-label{font-size:14px;color:var(--gray-500);margin-top:4px;margin-bottom:24px}
+.pricing-divider{height:1px;background:var(--gray-200);margin-bottom:24px}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.pricing-feature{font-size:14px;font-weight:400;color:var(--gray-600);display:flex;align-items:flex-start;gap:10px;line-height:1.5;letter-spacing:-.005em}
+.pricing-feature svg{width:16px;height:16px;flex-shrink:0;margin-top:2px;stroke:var(--gray-400)}
+.pricing-btn{display:block;width:100%;text-align:center;font-size:15px;font-weight:500;padding:14px 24px;border-radius:100px;letter-spacing:-.01em;transition:all .35s var(--ease-out)}
+.pricing-btn-dark{background:var(--black);color:var(--white)}
+.pricing-btn-dark:hover{background:#333;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.pricing-btn-light{background:var(--white);color:var(--black);border:1px solid var(--gray-200)}
+.pricing-btn-light:hover{border-color:var(--black)}
+.pricing-card.featured .pricing-btn-light{border-color:rgba(255,255,255,.2)}
+.pricing-card.featured .pricing-btn-light:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.1)}
+.pricing-note{text-align:center;max-width:640px;margin:clamp(24px,3vw,40px) auto 0;font-size:14px;color:var(--gray-500);line-height:1.6;letter-spacing:-.005em}
+
+/* ═══ CTA SECTION ═══ */
+.cta-section{padding:var(--section-py) clamp(24px,4vw,48px);text-align:center}
+.cta-inner{max-width:var(--max-w);margin:0 auto;padding:clamp(48px,7vw,100px) clamp(32px,5vw,64px);border:1px solid var(--gray-200);border-radius:20px;position:relative;overflow:hidden;transition:all .4s var(--ease-out)}
+.cta-inner:hover{border-color:var(--gray-300);box-shadow:0 12px 40px rgba(0,0,0,.04)}
+.cta-title{font-size:clamp(28px,4vw,48px);font-weight:500;letter-spacing:-.035em;line-height:1.1;margin-bottom:16px}
+.cta-desc{font-size:clamp(15px,1.5vw,18px);font-weight:400;color:var(--gray-600);max-width:520px;margin:0 auto 32px;line-height:1.6;letter-spacing:-.01em}
+
+/* ═══ FAQ ═══ */
+.faq-list{max-width:720px;margin:clamp(40px,5vw,64px) auto 0}
+.faq-item{border-bottom:1px solid var(--gray-200)}
+.faq-question{width:100%;text-align:left;padding:24px 0;font-size:16px;font-weight:500;letter-spacing:-.015em;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .2s ease;cursor:pointer}
+.faq-question:hover{color:var(--gray-600)}
+.faq-icon{width:24px;height:24px;flex-shrink:0;position:relative;transition:transform .35s var(--ease-out)}
+.faq-icon::before,.faq-icon::after{content:'';position:absolute;background:var(--black);border-radius:1px}
+.faq-icon::before{width:12px;height:1.5px;top:50%;left:50%;transform:translate(-50%,-50%)}
+.faq-icon::after{width:1.5px;height:12px;top:50%;left:50%;transform:translate(-50%,-50%);transition:transform .35s var(--ease-out)}
+.faq-item.active .faq-icon::after{transform:translate(-50%,-50%) scaleY(0)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .5s var(--ease-out)}
+.faq-answer-inner{padding:0 0 24px;font-size:15px;font-weight:400;color:var(--gray-600);line-height:1.7;letter-spacing:-.005em}
+
+/* ═══ FOOTER ═══ */
+.footer{padding:clamp(40px,5vw,64px) clamp(24px,4vw,48px);border-top:1px solid var(--gray-200)}
+.footer-inner{max-width:var(--max-w);margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-logo svg{height:18px;width:auto;opacity:.4}
+.footer-right{font-size:13px;color:var(--gray-400);letter-spacing:-.005em}
+
+/* ═══ COUNTER ANIMATION ═══ */
+.counter{display:inline-block}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+.problem-grid,.solution-grid{grid-template-columns:repeat(2,1fr)}
+.results-grid{grid-template-columns:repeat(3,1fr)}
+.how-steps{grid-template-columns:1fr;gap:48px}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--white);padding:24px;border-bottom:1px solid var(--gray-200);gap:16px}
+.mobile-toggle{display:flex}
+.hero-stats{flex-direction:column;gap:24px}
+.problem-grid,.solution-grid,.features-grid,.results-grid,.pricing-cards,.testimonials-pair{grid-template-columns:1fr}
+.hero-headline{font-size:clamp(32px,8vw,48px)}
+}
+
+/* ═══ SMOOTH SCROLL BAR ═══ */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--gray-300);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--gray-400)}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav" id="nav">
+<div class="nav-inner">
+<a href="#" class="nav-logo">
+<svg width="373" height="88" viewBox="0 0 373 88" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:22px;width:auto">
+<path d="M1.19209e-07 72.2V5.96046e-06H34.2V3.80001H41.8V7.60001H45.6V15.2H49.4V26.6H45.6V34.2H41.8V38H34.2V41.8H7.6V72.2H1.19209e-07ZM38 30.4V26.6H41.8V15.2H38V11.4H34.2V7.60001H7.6V34.2H34.2V30.4H38ZM54.8398 64.6V49.4H58.6398V45.6H66.2398V41.8H85.2398V38H89.0398V30.4H85.2398V26.6H66.2398V30.4H62.4398V34.2H54.8398V26.6H58.6398V22.8H66.2398V19H85.2398V22.8H92.8398V30.4H96.6398V64.6H100.44V72.2H92.8398V68.4H89.0398V64.6H85.2398V60.8H89.0398V45.6H85.2398V49.4H66.2398V53.2H62.4398V64.6H85.2398V68.4H81.4398V72.2H62.4398V68.4H58.6398V64.6H54.8398ZM109.671 60.8V57H105.871V30.4H109.671V26.6H113.471V22.8H117.271V19H136.271V22.8H140.071V26.6H121.071V30.4H117.271V34.2H113.471V53.2H117.271V57H121.071V60.8H140.071V64.6H136.271V68.4H117.271V64.6H113.471V60.8H109.671ZM105.871 79.8V72.2H113.471V76H117.271V79.8H140.071V76H143.871V60.8H140.071V53.2H143.871V34.2H140.071V26.6H143.871V19H151.471V79.8H147.671V83.6H140.071V87.4H117.271V83.6H109.671V79.8H105.871ZM164.511 34.2V41.8H194.911V34.2H191.111V30.4H187.311V26.6H172.111V30.4H168.311V34.2H164.511ZM160.711 64.6V57H156.911V34.2H160.711V26.6H164.511V22.8H168.311V19H191.111V22.8H194.911V26.6H198.711V34.2H202.511V49.4H164.511V57H168.311V60.8H172.111V64.6H191.111V60.8H194.911V57H202.511V64.6H198.711V68.4H191.111V72.2H168.311V68.4H164.511V64.6H160.711ZM211.734 64.6V26.6H204.134V19H211.734V7.60001H219.334V19H234.534V26.6H219.334V64.6H234.534V72.2H219.334V68.4H215.534V64.6H211.734ZM243.722 34.2V41.8H274.122V34.2H270.322V30.4H266.522V26.6H251.322V30.4H247.522V34.2H243.722ZM239.922 64.6V57H236.122V34.2H239.922V26.6H243.722V22.8H247.522V19H270.322V22.8H274.122V26.6H277.922V34.2H281.722V49.4H243.722V57H247.522V60.8H251.322V64.6H270.322V60.8H274.122V57H281.722V64.6H277.922V68.4H270.322V72.2H247.522V68.4H243.722V64.6H239.922ZM287.145 64.6V49.4H290.945V45.6H298.545V41.8H317.545V38H321.345V30.4H317.545V26.6H298.545V30.4H294.745V34.2H287.145V26.6H290.945V22.8H298.545V19H317.545V22.8H325.145V30.4H328.945V64.6H332.745V72.2H325.145V68.4H321.345V64.6H317.545V60.8H321.345V45.6H317.545V49.4H298.545V53.2H294.745V64.6H317.545V68.4H313.745V72.2H294.745V68.4H290.945V64.6H287.145ZM357.176 26.6V22.8H360.976V19H372.376V26.6H357.176ZM338.176 72.2V64.6H345.776V26.6H338.176V19H353.376V26.6H357.176V30.4H353.376V64.6H364.776V72.2H338.176Z" fill="black"/>
+</svg>
+</a>
+<div class="nav-links" id="navLinks">
+<a href="#pricing">Pricing</a>
+<a href="#work">Work</a>
+<a href="#about">About</a>
+<a href="https://cal.com/forms/89099e4a-49ee-4cb2-9e22-9cd20471209b" class="nav-cta">Get a free teardown</a>
+</div>
+<div class="mobile-toggle" id="mobileToggle" onclick="document.getElementById('navLinks').classList.toggle('open');this.classList.toggle('active')">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+<h1 class="hero-headline reveal">Revenue-driving copy<br>for startups</h1>
+<p class="hero-sub reveal reveal-delay-1">Landing pages, emails, ads, video scripts, and everything your team needs to grow. Written by a conversion pro. Delivered in 48 hours.</p>
+<a href="https://cal.com/forms/89099e4a-49ee-4cb2-9e22-9cd20471209b" class="hero-cta reveal reveal-delay-2">
+Get a free page teardown
+<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</a>
+<div class="hero-stats reveal reveal-delay-3">
+<div class="hero-stat">
+<div class="hero-stat-number"><span class="counter" data-target="1950">0</span>+</div>
+<div class="hero-stat-label">Projects delivered</div>
+</div>
+<div class="hero-stat">
+<div class="hero-stat-number"><span class="counter" data-target="45">0</span>+</div>
+<div class="hero-stat-label">Startups served</div>
+</div>
+<div class="hero-stat">
+<div class="hero-stat-number"><span class="counter" data-target="10">0</span></div>
+<div class="hero-stat-label">Yrs experience</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ LOGO BAR ═══ -->
+<div class="logos-bar">
+<div class="logos-track" id="logosTrack">
+<img src="Group 1.svg" alt="Anthropic" loading="lazy">
+<img src="Group 2.svg" alt="LinkedIn" loading="lazy">
+<img src="Group 3.svg" alt="Slack" loading="lazy">
+<img src="Group 4.svg" alt="Notion" loading="lazy">
+<img src="Group 5.svg" alt="Figma" loading="lazy">
+<img src="Group 6.svg" alt="Stripe" loading="lazy">
+<img src="Group 7.svg" alt="GitHub" loading="lazy">
+<img src="Group 8.svg" alt="Vercel" loading="lazy">
+<img src="Group 9.svg" alt="Webflow" loading="lazy">
+<img src="Group 10.svg" alt="Vercel" loading="lazy">
+<img src="Group 11.svg" alt="Linear" loading="lazy">
+<img src="Group-1.svg" alt="Arweave" loading="lazy">
+<img src="VEED.svg" alt="VEED" loading="lazy">
+<img src="Ze92tgzL0.svg" alt="Framer" loading="lazy">
+<img src="g12.svg" alt="Loom" loading="lazy">
+<img src="g14.svg" alt="Gumroad" loading="lazy">
+<!-- duplicate set for seamless loop -->
+<img src="Group 1.svg" alt="Anthropic" loading="lazy">
+<img src="Group 2.svg" alt="LinkedIn" loading="lazy">
+<img src="Group 3.svg" alt="Slack" loading="lazy">
+<img src="Group 4.svg" alt="Notion" loading="lazy">
+<img src="Group 5.svg" alt="Figma" loading="lazy">
+<img src="Group 6.svg" alt="Stripe" loading="lazy">
+<img src="Group 7.svg" alt="GitHub" loading="lazy">
+<img src="Group 8.svg" alt="Vercel" loading="lazy">
+<img src="Group 9.svg" alt="Webflow" loading="lazy">
+<img src="Group 10.svg" alt="Vercel" loading="lazy">
+<img src="Group 11.svg" alt="Linear" loading="lazy">
+<img src="Group-1.svg" alt="Arweave" loading="lazy">
+<img src="VEED.svg" alt="VEED" loading="lazy">
+<img src="Ze92tgzL0.svg" alt="Framer" loading="lazy">
+<img src="g12.svg" alt="Loom" loading="lazy">
+<img src="g14.svg" alt="Gumroad" loading="lazy">
+</div>
+</div>
+
+<!-- ═══ SERVICES MARQUEE ═══ -->
+<section class="services-marquee">
+<div class="services-marquee-label reveal">Everything you need, written and delivered</div>
+<div class="marquee-wrapper">
+<div class="marquee-row" id="marqueeRow1"></div>
+<div class="marquee-row reverse" id="marqueeRow2"></div>
+</div>
+</section>
+
+<!-- ═══ TESTIMONIAL — FLO ═══ -->
+<section class="testimonial-block reveal" id="work">
+<div class="testimonial-inner">
+<div class="testimonial-quote">
+We've been working with Pagetear for a couple of months now at VEED.IO and we're super super happy. The workflow is incredibly easy to manage, he always delivers above and beyond on the brief, he's very easy to communicate with and the quality of the work is fantastic. Highly recommended!
+</div>
+<div class="testimonial-author">
+<img src="Flo.jpeg" alt="Flo Schirmer" class="testimonial-avatar" loading="lazy">
+<div class="testimonial-meta">
+<div class="testimonial-name">Flo Schirmer</div>
+<div class="testimonial-company">
+<svg width="154" height="40" viewBox="0 0 154 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:14px;width:auto">
+<path d="M26.9707 40H16.1288L0 0H12.28L21.5753 23.8807L30.8227 0H43.1027L26.9707 40Z" fill="#999"/>
+<path d="M76.537 40H45.9535V0H76.3074V9.67156H56.9707V15.5804H74.7513V24.3591H56.9707V30.3284H76.537V40Z" fill="#999"/>
+<path d="M111.952 40H81.368V0H111.722V9.67156H92.3853V15.5804H110.172V24.3591H92.3853V30.3284H111.952V40Z" fill="#999"/>
+<path d="M133.023 0C139.294 0 144.362 1.83036 148.227 5.49107C152.054 9.1943 153.967 14.0306 153.967 20C153.967 25.9694 152.054 30.7855 148.227 34.4483C144.364 38.1516 139.296 40.0021 133.023 40H116.782V0H133.023ZM132.219 30.3284C135.395 30.3284 137.958 29.3718 139.907 27.4585C141.857 25.5453 142.833 23.058 142.835 19.9968C142.835 16.9313 141.859 14.4441 139.907 12.5351C137.956 10.6261 135.393 9.66943 132.219 9.66518H127.8V30.3221L132.219 30.3284Z" fill="#999"/>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ PROBLEM SECTION ═══ -->
+<section class="section" id="about">
+<div class="section-inner">
+<div class="section-label reveal">The problem</div>
+<h2 class="section-title reveal reveal-delay-1">Your copy is costing<br>you signups</h2>
+<p class="section-subtitle reveal reveal-delay-2">Your product is strong. Your pages should be pulling their weight.</p>
+<div class="problem-grid reveal-stagger">
+<div class="problem-card">
+<div class="problem-card-title">Conversion stuck below 3%</div>
+<div class="problem-card-desc">Your landing page gets traffic. It should be getting signups.</div>
+</div>
+<div class="problem-card">
+<div class="problem-card-title">AI output that reads like everyone else</div>
+<div class="problem-card-desc">The draft looked decent until you realized it could be any company's page.</div>
+</div>
+<div class="problem-card">
+<div class="problem-card-title">Three hours on one headline</div>
+<div class="problem-card-desc">Your team spent the morning on copy when they should have been shipping product.</div>
+</div>
+<div class="problem-card">
+<div class="problem-card-title">Freelancer roulette</div>
+<div class="problem-card-desc">Late delivery. Off-brand tone. Another round of revisions you shouldn't have to manage.</div>
+</div>
+<div class="problem-card">
+<div class="problem-card-title">No strategy behind the words</div>
+<div class="problem-card-desc">Your copy reads fine. But it lacks positioning, hooks, and conversion structure. Visitors read it and move on.</div>
+</div>
+<div class="problem-card">
+<div class="problem-card-title">Scaling content is a bottleneck</div>
+<div class="problem-card-desc">You need 10 pages of copy this month and your team can produce two. Everything else sits in a backlog that keeps growing.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ SOLUTION SECTION ═══ -->
+<section class="section" style="background:var(--gray-100)">
+<div class="section-inner">
+<div class="section-label reveal">The solution</div>
+<h2 class="section-title reveal reveal-delay-1">The copy engine behind<br>45+ startups</h2>
+<div class="solution-grid reveal-stagger">
+<div class="solution-card">
+<div class="solution-icon">
+<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+</div>
+<div class="solution-card-title">Conversion-tested copy</div>
+<div class="solution-card-desc">Copy built on frameworks that have driven results for 45+ startups. Real-world tested approaches that convert.</div>
+</div>
+<div class="solution-card">
+<div class="solution-icon">
+<svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+</div>
+<div class="solution-card-title">Written by a human, sounds like your brand</div>
+<div class="solution-card-desc">Every piece matches your voice, your tone, your audience. Crafted to feel authentically you, uniquely yours.</div>
+</div>
+<div class="solution-card">
+<div class="solution-icon">
+<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+</div>
+<div class="solution-card-title">48-hour turnaround on everything</div>
+<div class="solution-card-desc">Landing pages, emails, ads. All delivered in two business days. Every time. So you can move faster.</div>
+</div>
+<div class="solution-card">
+<div class="solution-icon">
+<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+</div>
+<div class="solution-card-title">One subscription, unlimited requests</div>
+<div class="solution-card-desc">Submit as many projects as you want. They all get done. No rush fees, no per-project costs, no hidden charges.</div>
+</div>
+<div class="solution-card">
+<div class="solution-icon">
+<svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+</div>
+<div class="solution-card-title">Plug-and-play delivery</div>
+<div class="solution-card-desc">Copy arrives ready to paste into your site, your CMS, your ad platform. Zero formatting work.</div>
+</div>
+<div class="solution-card">
+<div class="solution-icon">
+<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+</div>
+<div class="solution-card-title">Strategic partner who cares</div>
+<div class="solution-card-desc">Growth Engine clients get funnel reviews and messaging strategy calls. I'm invested in your success.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="section">
+<div class="section-inner">
+<div class="section-label reveal">How it works</div>
+<h2 class="section-title reveal reveal-delay-1">Subscribe now, get copy by <span id="dynamicDate"></span></h2>
+<div class="how-steps">
+<div class="how-step reveal">
+<div class="how-step-line"></div>
+<div class="how-step-dot"></div>
+<h3 class="how-step-title">Pick your plan</h3>
+<p class="how-step-desc">Get your shared Notion board in under 2 minutes. Invite your whole team. Add docs, brand guidelines, Loom videos, or voice notes.</p>
+</div>
+<div class="how-step reveal reveal-delay-1">
+<div class="how-step-line"></div>
+<div class="how-step-dot"></div>
+<h3 class="how-step-title">Drop your first brief</h3>
+<p class="how-step-desc">Any format, any asset, any size. One-click briefs keep requests fast. Need a full landing page or 5 email variants? Submit them all.</p>
+</div>
+<div class="how-step reveal reveal-delay-2">
+<div class="how-step-line"></div>
+<div class="how-step-dot"></div>
+<h3 class="how-step-title">Get copy in 48 hours</h3>
+<p class="how-step-desc">Every project delivered within 48 hours. Unlimited revisions on every request. Publish with confidence and move on.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="section" style="background:var(--gray-100)">
+<div class="section-inner">
+<div class="section-label reveal">Features</div>
+<h2 class="section-title reveal reveal-delay-1">All the copywriting help you need<br>in one subscription</h2>
+<div class="features-grid reveal-stagger">
+<div class="feature-card">
+<div class="feature-card-title">48-hour delivery</div>
+<div class="feature-card-desc">Every project, every time, zero rush fees. You submit on Monday, copy lands by Tuesday. Consistency you can count on.</div>
+<div class="feature-tags"><span class="feature-tag">Landing pages</span><span class="feature-tag">Email sequences</span><span class="feature-tag">Ad copy</span></div>
+</div>
+<div class="feature-card">
+<div class="feature-card-title">Unlimited revisions</div>
+<div class="feature-card-desc">Reworked until you love it. Revisions never delay other projects. Send rounds of feedback without worrying.</div>
+<div class="feature-tags"><span class="feature-tag">Tone adjustments</span><span class="feature-tag">Full rewrites</span><span class="feature-tag">A/B versions</span></div>
+</div>
+<div class="feature-card">
+<div class="feature-card-title">Pause or cancel anytime</div>
+<div class="feature-card-desc">Zero contracts, zero lock-in. Need to pause in December? Pause. Want to quit? You can. One email and you're done.</div>
+<div class="feature-tags"><span class="feature-tag">Month-to-month billing</span><span class="feature-tag">No cancellation fees</span><span class="feature-tag">Instant deactivation</span></div>
+</div>
+<div class="feature-card">
+<div class="feature-card-title">2-minute onboarding</div>
+<div class="feature-card-desc">Subscribe and your workspace is live. No intake calls, no questionnaires. Start submitting briefs immediately.</div>
+<div class="feature-tags"><span class="feature-tag">Instant Notion setup</span><span class="feature-tag">Brand guide templates</span><span class="feature-tag">First brief in 2 min</span></div>
+</div>
+<div class="feature-card">
+<div class="feature-card-title">Unlimited team invites</div>
+<div class="feature-card-desc">Your whole team can submit and review from one board. No per-user fees. Everyone gets access.</div>
+<div class="feature-tags"><span class="feature-tag">Full team access</span><span class="feature-tag">Unlimited collaborators</span><span class="feature-tag">Comment threads</span></div>
+</div>
+<div class="feature-card">
+<div class="feature-card-title">Strategic calls (Growth Engine)</div>
+<div class="feature-card-desc">Monthly funnel reviews and messaging priorities. I'll help you think through your copy strategy and execute flawlessly on it.</div>
+<div class="feature-tags"><span class="feature-tag">Monthly strategy calls</span><span class="feature-tag">Funnel audits</span><span class="feature-tag">Messaging prioritization</span></div>
+</div>
+<div class="feature-card feature-card-full">
+<div class="feature-card-title">One source of truth</div>
+<div class="feature-card-desc">Everything lives in your shared Notion workspace. Briefs, assets, copy, feedback, revisions. All in one place.</div>
+<div class="feature-tags"><span class="feature-tag">Shared Notion board</span><span class="feature-tag">Full version history</span><span class="feature-tag">Searchable &amp; organized</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ DELIVERABLES TICKER ═══ -->
+<section class="deliverables">
+<div class="deliverables-label reveal">Deliverables included</div>
+<div class="deliverables-track" id="delivTrack"></div>
+</section>
+
+<!-- ═══ RESULTS ═══ -->
+<section class="section">
+<div class="section-inner">
+<div class="section-label reveal">Results</div>
+<h2 class="section-title reveal reveal-delay-1">The ROI of getting copy right</h2>
+<div class="results-grid reveal-stagger">
+<div class="result-card"><div class="result-number">+17%</div><div class="result-label">Free trial CVR after homepage hero rewrite</div></div>
+<div class="result-card"><div class="result-number">3x</div><div class="result-label">Consultation bookings within 6 weeks</div></div>
+<div class="result-card"><div class="result-number">$25k</div><div class="result-label">Above target on email campaign launch</div></div>
+<div class="result-card"><div class="result-number">1.2% → 3.5%</div><div class="result-label">CTA conversion after hero rewrite</div></div>
+<div class="result-card"><div class="result-number">+42%</div><div class="result-label">Demo requests from landing page overhaul</div></div>
+<div class="result-card"><div class="result-number">+28%</div><div class="result-label">Email open rate from subject line rewrite</div></div>
+<div class="result-card"><div class="result-number">2.4x</div><div class="result-label">Landing page conversion for paid traffic</div></div>
+<div class="result-card"><div class="result-number">+65%</div><div class="result-label">Trial-to-paid upgrade from onboarding emails</div></div>
+<div class="result-card"><div class="result-number">$180k</div><div class="result-label">Pipeline from single case study page</div></div>
+<div class="result-card"><div class="result-number">+31%</div><div class="result-label">Click-through rate on Meta + Google ads</div></div>
+<div class="result-card"><div class="result-number">4.2%</div><div class="result-label">Signup rate from 1.8% after pricing restructure</div></div>
+<div class="result-card"><div class="result-number">+53%</div><div class="result-label">Webinar registrations from landing page rewrite</div></div>
+</div>
+
+<!-- Testimonial cards -->
+<div class="testimonials-pair reveal">
+<div class="testimonial-card">
+<div class="testimonial-card-quote">"Blake is the best. He actually makes it difficult to want to work with anybody else."</div>
+<div class="testimonial-card-author">
+<img src="stephaniewei.jpeg" alt="Stephanie Wei" class="testimonial-card-avatar" loading="lazy">
+<div>
+<div class="testimonial-card-name">Stephanie Wei</div>
+<div class="testimonial-card-role">Asterworks</div>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="testimonial-card-quote">"I've LOVED your writing. You're doing a killer job. Specifically I've appreciated how good the writing is and all the detailed examples you're using. Really great work."</div>
+<div class="testimonial-card-author">
+<img src="katherinekrug.jpeg" alt="Katherine Krug" class="testimonial-card-avatar" loading="lazy">
+<div>
+<div class="testimonial-card-name">Katherine Krug</div>
+<div class="testimonial-card-role">Athena</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section class="section" style="background:var(--gray-100)" id="pricing">
+<div class="section-inner">
+<div class="section-label reveal">Pricing</div>
+<h2 class="section-title reveal reveal-delay-1">Less than a freelancer,<br>better than an agency</h2>
+<div class="pricing-cards reveal">
+<div class="pricing-card featured">
+<div class="pricing-plan">Classic</div>
+<div class="pricing-amount">$4,000</div>
+<div class="pricing-label">per month</div>
+<div class="pricing-divider"></div>
+<ul class="pricing-features">
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>12 projects per month (3 per week)</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>48-hour delivery</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>Unlimited revisions</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>Strategic calls included</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>Unlimited team invites</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>Dedicated Notion workspace</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>Pause or cancel anytime</li>
+</ul>
+<a href="https://cal.com/forms/89099e4a-49ee-4cb2-9e22-9cd20471209b" class="pricing-btn pricing-btn-light">Get started</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-plan">Mini</div>
+<div class="pricing-amount">$2,000</div>
+<div class="pricing-label">per month</div>
+<div class="pricing-divider"></div>
+<ul class="pricing-features">
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>4 projects per month (1 per week)</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>48-hour delivery</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>1 revision per project</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>Fully async</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>Dedicated Notion workspace</li>
+<li class="pricing-feature"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l3.5 3.5L13 5"/></svg>Pause or cancel anytime</li>
+</ul>
+<a href="https://cal.com/forms/89099e4a-49ee-4cb2-9e22-9cd20471209b" class="pricing-btn pricing-btn-dark">Get started</a>
+</div>
+</div>
+<p class="pricing-note reveal">12 projects at $4,000/month means each one runs you ~$333. A single landing page on its own starts at $1,500. The subscription pays for itself before the month is over.</p>
+</div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+<div class="cta-inner reveal">
+<h2 class="cta-title">No more leaving revenue on the page</h2>
+<p class="cta-desc">Every day your pages stay the same is revenue left behind. Book a free teardown and see exactly where your copy is losing conversions. Walk away with a plan and a roadmap forward.</p>
+<a href="https://cal.com/forms/89099e4a-49ee-4cb2-9e22-9cd20471209b" class="hero-cta">
+Get a free page teardown
+<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</a>
+</div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="section">
+<div class="section-inner">
+<div class="section-label reveal">FAQ</div>
+<h2 class="section-title reveal reveal-delay-1">Common questions</h2>
+<div class="faq-list reveal reveal-delay-2">
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+How do I know you'll understand my industry?
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">I've written for over 50 SaaS companies and agencies in the past 10 years. Fintech, developer tools, consumer apps, and more. Most clients say I sound like an internal team member by week two.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+What if I need something faster than 48 hours?
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Rush delivery happens. Let me know when you submit and I'll prioritize it. I've turned around landing pages in 24 hours and ad copy same-day.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+Can you match our brand voice?
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Send me your best examples and brand guidelines. Every client gets their own voice document I build and refine as we work together. Your copy will sound like you wrote it, only sharper.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+What if we need multiple projects at once?
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">Submit them all. I work through requests in order and handle multiple projects during launch periods. Many clients submit 5+ at a time.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+Will this actually improve our conversions?
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">My copy has helped clients increase free trial CVR by 17%, triple consultation bookings, and sell $25k above expectations on email campaigns. I can't guarantee specific numbers because too many variables are at play, but the track record speaks for itself.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+What's the catch with "cancel anytime"?
+<span class="faq-icon"></span>
+</button>
+<div class="faq-answer"><div class="faq-answer-inner">There's zero catch. You pay monthly. Want to stop? Stop. Want to pause? Pause. Resume whenever you're ready.</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+<div class="footer-inner">
+<a href="#" class="footer-logo">
+<svg width="373" height="88" viewBox="0 0 373 88" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:18px;width:auto">
+<path d="M1.19209e-07 72.2V5.96046e-06H34.2V3.80001H41.8V7.60001H45.6V15.2H49.4V26.6H45.6V34.2H41.8V38H34.2V41.8H7.6V72.2H1.19209e-07ZM38 30.4V26.6H41.8V15.2H38V11.4H34.2V7.60001H7.6V34.2H34.2V30.4H38ZM54.8398 64.6V49.4H58.6398V45.6H66.2398V41.8H85.2398V38H89.0398V30.4H85.2398V26.6H66.2398V30.4H62.4398V34.2H54.8398V26.6H58.6398V22.8H66.2398V19H85.2398V22.8H92.8398V30.4H96.6398V64.6H100.44V72.2H92.8398V68.4H89.0398V64.6H85.2398V60.8H89.0398V45.6H85.2398V49.4H66.2398V53.2H62.4398V64.6H85.2398V68.4H81.4398V72.2H62.4398V68.4H58.6398V64.6H54.8398ZM109.671 60.8V57H105.871V30.4H109.671V26.6H113.471V22.8H117.271V19H136.271V22.8H140.071V26.6H121.071V30.4H117.271V34.2H113.471V53.2H117.271V57H121.071V60.8H140.071V64.6H136.271V68.4H117.271V64.6H113.471V60.8H109.671ZM105.871 79.8V72.2H113.471V76H117.271V79.8H140.071V76H143.871V60.8H140.071V53.2H143.871V34.2H140.071V26.6H143.871V19H151.471V79.8H147.671V83.6H140.071V87.4H117.271V83.6H109.671V79.8H105.871ZM164.511 34.2V41.8H194.911V34.2H191.111V30.4H187.311V26.6H172.111V30.4H168.311V34.2H164.511ZM160.711 64.6V57H156.911V34.2H160.711V26.6H164.511V22.8H168.311V19H191.111V22.8H194.911V26.6H198.711V34.2H202.511V49.4H164.511V57H168.311V60.8H172.111V64.6H191.111V60.8H194.911V57H202.511V64.6H198.711V68.4H191.111V72.2H168.311V68.4H164.511V64.6H160.711ZM211.734 64.6V26.6H204.134V19H211.734V7.60001H219.334V19H234.534V26.6H219.334V64.6H234.534V72.2H219.334V68.4H215.534V64.6H211.734ZM243.722 34.2V41.8H274.122V34.2H270.322V30.4H266.522V26.6H251.322V30.4H247.522V34.2H243.722ZM239.922 64.6V57H236.122V34.2H239.922V26.6H243.722V22.8H247.522V19H270.322V22.8H274.122V26.6H277.922V34.2H281.722V49.4H243.722V57H247.522V60.8H251.322V64.6H270.322V60.8H274.122V57H281.722V64.6H277.922V68.4H270.322V72.2H247.522V68.4H243.722V64.6H239.922ZM287.145 64.6V49.4H290.945V45.6H298.545V41.8H317.545V38H321.345V30.4H317.545V26.6H298.545V30.4H294.745V34.2H287.145V26.6H290.945V22.8H298.545V19H317.545V22.8H325.145V30.4H328.945V64.6H332.745V72.2H325.145V68.4H321.345V64.6H317.545V60.8H321.345V45.6H317.545V49.4H298.545V53.2H294.745V64.6H317.545V68.4H313.745V72.2H294.745V68.4H290.945V64.6H287.145ZM357.176 26.6V22.8H360.976V19H372.376V26.6H357.176ZM338.176 72.2V64.6H345.776V26.6H338.176V19H353.376V26.6H357.176V30.4H353.376V64.6H364.776V72.2H338.176Z" fill="#999"/>
+</svg>
+</a>
+<div class="footer-right">&copy; <span id="footerYear"></span> Pagetear</div>
+</div>
+</footer>
+
+<script>
+/* ═══ DYNAMIC DATE ═══ */
+(function(){
+const d=new Date();
+d.setDate(d.getDate()+2);
+const opts={month:'long',day:'numeric'};
+const el=document.getElementById('dynamicDate');
+if(el) el.textContent=d.toLocaleDateString('en-US',opts);
+const fy=document.getElementById('footerYear');
+if(fy) fy.textContent=new Date().getFullYear();
+})();
+
+/* ═══ SCROLL REVEAL ═══ */
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add('visible');
+observer.unobserve(e.target);
+}
+});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>observer.observe(el));
+
+/* ═══ NAV SCROLL ═══ */
+let lastScroll=0;
+window.addEventListener('scroll',()=>{
+const nav=document.getElementById('nav');
+if(window.scrollY>20)nav.classList.add('scrolled');
+else nav.classList.remove('scrolled');
+lastScroll=window.scrollY;
+},{passive:true});
+
+/* ═══ COUNTER ANIMATION ═══ */
+const counterObserver=new IntersectionObserver((entries)=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+const el=e.target;
+const target=parseInt(el.dataset.target);
+const duration=1800;
+const start=performance.now();
+const animate=(now)=>{
+const elapsed=now-start;
+const progress=Math.min(elapsed/duration,1);
+const eased=1-Math.pow(1-progress,3);
+el.textContent=Math.round(eased*target).toLocaleString();
+if(progress<1)requestAnimationFrame(animate);
+};
+requestAnimationFrame(animate);
+counterObserver.unobserve(el);
+}
+});
+},{threshold:0.5});
+document.querySelectorAll('.counter').forEach(el=>counterObserver.observe(el));
+
+/* ═══ SERVICES MARQUEE ═══ */
+const services=['Landing Pages','Email Sequences','Video Scripts','Blog Posts','Google Ads','Meta Ads','Social Copy','Product Copy','Marketing Emails','Headlines & Taglines','Webinar Decks','Site Audits','Homepage Copy','Pricing Pages','Case Studies','Onboarding Flows','Sales Decks','LinkedIn Ads','Welcome Emails','CTAs','Feature Pages','Nurture Sequences','Ad Headlines','Product Descriptions','Signup Pages','Drip Campaigns','About Pages','Demo Scripts','Newsletter Copy','Microcopy','Testimonial Pages','Retargeting Ads','Comparison Pages','Whitepapers','SMS Sequences','App Store Copy','Exit Intent Popups','Thank You Pages','Webinar Scripts','Partnership Pages','Upsell Emails','FAQ Sections','Brand Voice Guides','ROI Calculators','Investor Decks','Proposal Templates','Banner Ads'];
+function buildMarquee(id,items){
+const el=document.getElementById(id);
+const html=items.map(s=>`<span class="marquee-tag">${s}</span>`).join('');
+el.innerHTML=html+html;
+}
+buildMarquee('marqueeRow1',services.slice(0,24));
+buildMarquee('marqueeRow2',services.slice(24));
+
+/* ═══ DELIVERABLES TICKER ═══ */
+const deliverables=['Landing pages','Email sequences','Video scripts','Blog posts','Google ads','Meta ads','Social copy','Product copy','Marketing emails','Headlines & taglines','Webinar decks','Site audits','Case studies','Sales decks','Onboarding flows','Pricing pages'];
+(function(){
+const el=document.getElementById('delivTrack');
+const html=deliverables.map(d=>`<span class="deliverables-item">${d}</span>`).join('');
+el.innerHTML=html+html;
+})();
+
+/* ═══ FAQ TOGGLE ═══ */
+function toggleFaq(btn){
+const item=btn.parentElement;
+const answer=item.querySelector('.faq-answer');
+const isActive=item.classList.contains('active');
+
+// close all
+document.querySelectorAll('.faq-item.active').forEach(fi=>{
+fi.classList.remove('active');
+fi.querySelector('.faq-answer').style.maxHeight='0';
+});
+
+if(!isActive){
+item.classList.add('active');
+answer.style.maxHeight=answer.scrollHeight+'px';
+}
+}
+
+/* ═══ SMOOTH ANCHOR SCROLL ═══ */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+a.addEventListener('click',e=>{
+e.preventDefault();
+const target=document.querySelector(a.getAttribute('href'));
+if(target){
+target.scrollIntoView({behavior:'smooth',block:'start'});
+document.getElementById('navLinks').classList.remove('open');
+}
+});
+});
+
+/* ═══ RESULT CARD TILT ═══ */
+document.querySelectorAll('.result-card').forEach(card=>{
+card.addEventListener('mousemove',e=>{
+const rect=card.getBoundingClientRect();
+const x=(e.clientX-rect.left)/rect.width-.5;
+const y=(e.clientY-rect.top)/rect.height-.5;
+card.style.transform=`perspective(600px) rotateY(${x*5}deg) rotateX(${-y*5}deg)`;
+});
+card.addEventListener('mouseleave',()=>{
+card.style.transform='perspective(600px) rotateY(0) rotateX(0)';
+card.style.transition='transform .4s ease';
+});
+card.addEventListener('mouseenter',()=>{
+card.style.transition='none';
+});
+});
+
+/* ═══ PRICING CARD HOVER GLOW ═══ */
+document.querySelectorAll('.pricing-card').forEach(card=>{
+card.addEventListener('mousemove',e=>{
+const rect=card.getBoundingClientRect();
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+card.style.setProperty('--glow-x',x+'px');
+card.style.setProperty('--glow-y',y+'px');
+});
+});
+</script>
+
+</body>
+</html>
