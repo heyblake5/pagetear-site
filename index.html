@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pagetear — Revenue-driving copy for startups</title>
 <meta name="description" content="Landing pages, emails, ads, video scripts, and everything your team needs to grow. Written by a conversion pro. Delivered in 48 hours.">
-<link rel="icon" type="image/png" href="ptmetaicon.png">
+<link rel="icon" type="image/png" href="pt metaicon.png">
 <meta property="og:title" content="Pagetear — Revenue-driving copy for startups">
 <meta property="og:description" content="Landing pages, emails, ads, video scripts, and everything your team needs to grow. Written by a conversion pro. Delivered in 48 hours.">
-<meta property="og:image" content="ptmetaicon.png">
+<meta property="og:image" content="pt metaicon.png">
 <style>
 @font-face{font-family:'Geist';src:url('Geist-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Geist';src:url('Geist-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
@@ -36,11 +36,15 @@
 --ease-out:cubic-bezier(0.16,1,0.3,1);
 --ease-in-out:cubic-bezier(0.65,0,0.35,1);
 }
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23ec3e39' d='M2 2h2v2H2zM4 4h2v2H4zM6 6h2v2H6zM8 8h2v2H8zM4 6h2v2H4zM2 4h2v2H2zM2 6h2v2H2zM2 8h2v2H2zM2 10h2v2H2zM2 12h2v2H2zM4 10h2v2H4zM6 8h2v2H6zM6 10h2v2H6zM8 10h2v2H8zM10 12h2v2h-2zM8 12h2v2H8z'/%3E%3C/svg%3E") 0 0, auto}
+*{cursor:inherit}
+::selection{background:#ec3e39;color:#ffffff}
+::-moz-selection{background:#ec3e39;color:#ffffff}
 body{font-family:var(--font);color:var(--black);background:var(--white);line-height:1.6;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
+a,button,.faq-question,.deliverable-item,.pricing-card,.nav-cta,.hero-cta,.section-cta,.pricing-btn{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3E%3Cpath fill='%23ec3e39' d='M6 0h2v2H6zM6 2h2v2H6zM6 4h2v2H6zM6 6h2v2H6zM6 8h2v2H6zM6 10h2v2H6zM6 12h2v2H6zM6 14h2v2H6zM6 16h2v2H6zM8 14h2v2H8zM10 14h2v2h-2zM10 12h2v2h-2zM12 14h2v2h-2zM14 14h2v2h-2zM14 16h2v2h-2zM12 16h2v2h-2zM10 16h2v2h-2zM8 16h2v2H8zM8 18h2v2H8zM10 18h2v2h-2zM12 18h2v2h-2zM14 18h2v2h-2zM16 16h2v2h-2zM8 12h2v2H8z'/%3E%3C/svg%3E") 6 0, pointer}
 
 /* ═══ REVEAL ANIMATIONS ═══ */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
@@ -99,6 +103,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .logos-track img,.logos-track svg{height:22px;width:auto;opacity:.7;filter:grayscale(100%) brightness(0.45);transition:opacity .3s ease,filter .3s ease}
 .logos-track img:hover,.logos-track svg:hover{opacity:.9;filter:grayscale(100%) brightness(0.2)}
 @keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.logos-track{animation-duration:60s}
 
 /* ═══ HERO STATS (below logos) ═══ */
 .hero-stats{display:flex;justify-content:center;gap:clamp(32px,5vw,64px);padding:clamp(32px,4vw,48px) clamp(24px,4vw,48px);max-width:var(--max-w);margin:0 auto}
