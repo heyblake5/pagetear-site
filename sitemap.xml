@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Pagetear sitemap. Seed file.
-  vercel-publisher appends new <url> entries on each article publish.
-  Existing pagetear.com routes (homepage, /work, /contact, /pricing, etc.)
-  should already live elsewhere in your build pipeline. If your site has a
-  different sitemap location, point google search console at the canonical one
-  and merge these blog URLs into that file instead.
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
@@ -24,6 +16,18 @@
   </url>
 
   <!-- ARTICLE_URLS_START -->
+  <url>
+    <loc>https://www.pagetear.com/blog/saas-homepage-copy-examples/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pagetear.com/blog/landing-page-hero-copywriting/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- ARTICLE_URLS_END -->
 
 </urlset>
