@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Pagetear sitemap
+Sitemap: https://www.pagetear.com/sitemap.xml
