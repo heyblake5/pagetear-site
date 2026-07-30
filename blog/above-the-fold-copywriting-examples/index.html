@@ -35,7 +35,6 @@
 
   <link rel="icon" type="image/png" href="/favicon.png">
 
-  <link rel="preload" href="/GeistPixel-Square.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/Geist-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/Geist-Medium.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/Geist-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
@@ -127,7 +126,8 @@
 }
   </script>
 
-  <!-- Plausible analytics intentionally omitted on first build per Phase 1 decision. -->
+  <!-- Plausible analytics, proxied through /js/pt.js -->
+  <script defer data-domain="pagetear.com" data-api="/api/event" src="/js/pt.js"></script>
 
   <style>
     @font-face {
@@ -606,7 +606,7 @@
         <a href="https://www.pagetear.com#pricing">Pricing</a>
         <a href="/blog">Blog</a>
       </div>
-      <a class="cta-pill" href="https://www.pagetear.com#teardown">Get a free teardown</a>
+      <a class="cta-pill plausible-event-name=Book+Call plausible-event-position=Article+Teardown+Pill" href="https://cal.com/heyblake/pagetear">Get a free teardown</a>
     </div>
   </nav>
 
@@ -789,8 +789,8 @@
       <h3>Want sharper copy that ships</h3>
       <p>Pagetear builds the messaging, the positioning, and the pages so your team can ship faster. Every project ends with words your team will actually use.</p>
       <div class="cta-row">
-        <a class="btn-primary" href="https://www.pagetear.com/contact">Work with Pagetear</a>
-        <a class="btn-secondary" href="https://www.pagetear.com/work">See recent work</a>
+        <a class="btn-primary plausible-event-name=Book+Call plausible-event-position=Article+CTA+Primary" href="https://cal.com/heyblake/pagetear">Work with Pagetear</a>
+        <a class="btn-secondary plausible-event-name=Book+Call plausible-event-position=Article+CTA+Secondary" href="https://cal.com/heyblake/pagetear">See recent work</a>
       </div>
     </section>
   </main>
@@ -802,9 +802,9 @@
     </div>
     <div>
       <a href="https://www.pagetear.com">Home</a>
-      <a href="https://www.pagetear.com/work">Work</a>
+      <a class="plausible-event-name=Book+Call plausible-event-position=Article+Footer" href="https://cal.com/heyblake/pagetear">Work</a>
       <a href="https://www.pagetear.com/blog">Blog</a>
-      <a href="https://www.pagetear.com/contact">Contact</a>
+      <a class="plausible-event-name=Book+Call plausible-event-position=Article+Footer" href="https://cal.com/heyblake/pagetear">Contact</a>
     </div>
   </footer>
 
