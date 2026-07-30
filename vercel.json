@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/js/pt.js",
+      "destination": "https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"
+    },
+    {
+      "source": "/api/event",
+      "destination": "https://plausible.io/api/event"
+    }
+  ]
+}
