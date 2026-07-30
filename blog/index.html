@@ -27,7 +27,6 @@
 
   <link rel="icon" type="image/png" href="/favicon.png">
 
-  <link rel="preload" href="/GeistPixel-Square.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/Geist-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/Geist-Medium.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/Geist-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
@@ -457,6 +456,9 @@
       footer.site-footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
+
+<!-- Plausible analytics, proxied through /js/pt.js -->
+<script defer data-domain="pagetear.com" data-api="/api/event" src="/js/pt.js"></script>
 </head>
 <body>
 
@@ -470,7 +472,7 @@
         <a href="https://www.pagetear.com#pricing">Pricing</a>
         <a href="/blog" class="active">Blog</a>
       </div>
-      <a class="cta-pill" href="https://www.pagetear.com#teardown">
+      <a class="cta-pill plausible-event-name=Book+Call plausible-event-position=Article+Teardown+Pill" href="https://cal.com/heyblake/pagetear">
         Get a free teardown
       </a>
     </div>
@@ -626,7 +628,7 @@
     <section class="cta-section">
       <h3>Want sharper copy that ships</h3>
       <p>Landing pages, emails, ads, video scripts, and everything your team needs to grow. Written by a conversion pro. Delivered in 48 hours.</p>
-      <a class="cta-pill" href="https://www.pagetear.com#teardown">
+      <a class="cta-pill plausible-event-name=Book+Call plausible-event-position=Article+Teardown+Pill" href="https://cal.com/heyblake/pagetear">
         Get a free page teardown <span class="arrow" aria-hidden="true">&rarr;</span>
       </a>
     </section>
@@ -642,7 +644,7 @@
       <a href="https://www.pagetear.com#features">Features</a>
       <a href="https://www.pagetear.com#pricing">Pricing</a>
       <a href="/blog">Blog</a>
-      <a href="https://www.pagetear.com#contact">Contact</a>
+      <a class="plausible-event-name=Book+Call plausible-event-position=Article+Footer" href="https://cal.com/heyblake/pagetear">Contact</a>
     </div>
     <div class="footer-meta">
       &copy; Pagetear
