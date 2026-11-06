@@ -1,0 +1,26 @@
+# Pagetear
+
+> Pagetear is a conversion copywriting subscription for B2B startups. A senior conversion copywriter, Blake Emal, writes your landing pages, emails and ads, and every project ships in 48 hours.
+
+Pagetear runs on a monthly plan. One project is one page, one email sequence or one ad set. Every plan includes 48-hour delivery, revisions, your whole team on one Notion board and month-to-month billing.
+
+## Pricing
+
+- 1 project a week: $2,000 per month
+- 2 projects a week: $3,000 per month
+- 3 projects a week: $4,000 per month
+- 4 projects a week: $5,000 per month
+- Pause or cancel any month. No contract and no cancellation fee.
+
+## Pages
+
+- [Pagetear homepage](https://www.pagetear.com/): what Pagetear does, how it works, plans and FAQ
+- [How to hire a SaaS copywriter](https://www.pagetear.com/guides/how-to-hire-a-saas-copywriter): a buyer's guide comparing freelancers, agencies, unlimited copy subscriptions and senior specialists, with a checklist and questions to ask
+- [Does your homepage explain the product?](https://www.pagetear.com/guides/homepage-explains-the-product): seven manual checks for what the product does, who it is for, and why to believe it. No score and no tool.
+- [SaaS copywriting subscription](https://www.pagetear.com/saas-copywriting-subscription): how the monthly plan works, what one project covers, and pricing
+- [Unlimited copywriting subscriptions vs project plans](https://www.pagetear.com/compare/unlimited-copywriting-subscriptions): how unlimited copy plans queue work, and when a set number of projects fits better
+- [Blog](https://www.pagetear.com/blog): articles on SaaS copywriting, headlines and positioning
+
+## Contact
+
+- [Book a call](https://cal.com/heyblake/pagetear?utm_source=llms-txt&utm_medium=referral): same public booking link the site already uses

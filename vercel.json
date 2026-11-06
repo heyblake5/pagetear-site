@@ -8,5 +8,42 @@
       "source": "/api/event",
       "destination": "https://plausible.io/api/event"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/roast",
+      "destination": "/#audit",
+      "permanent": false
+    },
+    {
+      "source": "/audit",
+      "destination": "/#audit",
+      "permanent": false
+    },
+    {
+      "source": "/pricing",
+      "destination": "/#pricing",
+      "permanent": false
+    },
+    {
+      "source": "/book",
+      "destination": "https://cal.com/heyblake/pagetear",
+      "permanent": false
+    },
+    {
+      "source": "/call",
+      "destination": "https://cal.com/heyblake/pagetear",
+      "permanent": false
+    },
+    {
+      "source": "/index_v1_backup.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/landing-page",
+      "destination": "/#audit",
+      "permanent": false
+    }
   ]
 }
