@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to tell whether your homepage explains the product | Pagetear</title>
+<meta name="description" content="Seven checks you can run in ten minutes to see whether a B2B homepage says what the product does, who it is for and why to believe it. No tool, no score.">
+<link rel="canonical" href="https://www.pagetear.com/guides/homepage-explains-the-product">
+<style>
+@font-face{font-family:Geist;src:url(/v2r3/Geist-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Geist;src:url(/v2r3/Geist-SemiBold.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Geist Pixel";src:url(/v2r3/GeistPixel-Square.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{--text-primary:#0a0a0a;--text-secondary:#3d3d3d;--text-tertiary:#5c5c5c;--border-hairline:#ebebeb;--border-default:#dedede;--surface-tray:#f7f7f7;--surface-page:#fff;--accent:#c9231e;--accent-hover:#b31d19;--focus-ring:#0a0a0a;
+--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;
+--r-sm:8px;--r:14px;--r-lg:24px;--r-pill:999px;--max:760px;
+--sans:Geist,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--pixel:"Geist Pixel",Geist,ui-monospace,monospace}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);font-size:16px;line-height:1.6;color:var(--text-primary);background:var(--surface-page);-webkit-font-smoothing:antialiased}
+h1,h2,p,ul,ol{margin:0;padding:0} ol,ul{list-style:none}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:var(--s4);top:-60px;background:var(--text-primary);color:#fff;padding:var(--s2) var(--s4);border-radius:var(--r-sm)} .skip:focus{top:var(--s4)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--s5)}
+header.top{border-bottom:1px solid var(--border-hairline)} header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--pixel);font-size:20px;text-decoration:none}
+.hero{padding:var(--s8) 0 var(--s7)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}
+h1{font-family:var(--pixel);font-weight:400;font-size:clamp(36px,6vw,56px);line-height:1.1;letter-spacing:-.03em;margin-top:var(--s3);text-wrap:balance}
+.lede{font-size:18px;line-height:1.55;color:var(--text-secondary);margin-top:var(--s5)}
+.lede+.lede{margin-top:var(--s3)}
+.three{display:grid;gap:var(--s3);grid-template-columns:1fr;margin-top:var(--s6)}
+@media(min-width:640px){.three{grid-template-columns:repeat(3,1fr)}}
+.three li{border:1px solid var(--border-hairline);border-radius:var(--r);padding:var(--s4);background:var(--surface-tray);font-weight:600}
+.three li span{display:block;font-weight:400;font-size:14px;color:var(--text-secondary)}
+h2{font-family:var(--pixel);font-weight:400;font-size:28px;line-height:1.2;letter-spacing:-.02em}
+section{padding:var(--s7) 0}
+.sub{color:var(--text-secondary);margin-top:var(--s3)}
+.list{display:grid;gap:var(--s4);margin-top:var(--s6)}
+.card{border:1px solid var(--border-hairline);border-radius:var(--r-lg);padding:var(--s5);background:var(--surface-page);transition:border-color 150ms ease,background-color 150ms ease}
+.card.done{background:var(--surface-tray);border-color:var(--border-default)}
+.row{display:flex;gap:var(--s3);align-items:flex-start;cursor:pointer}
+.row input{width:20px;height:20px;margin:4px 0 0;accent-color:var(--accent);flex:none}
+.n{font-family:var(--pixel);color:var(--text-tertiary);padding-top:1px}
+.t{font-size:20px;font-weight:600;line-height:1.35;letter-spacing:-.01em}
+.body{display:grid;gap:var(--s3);margin-top:var(--s3);padding-left:calc(20px + var(--s3))}
+.body p{color:var(--text-secondary)} .body .q{color:var(--text-primary)}
+.obs,.fix{border-left:2px solid var(--border-default);padding-left:var(--s3)} .fix{border-left-color:var(--accent)}
+.tools{display:flex;gap:var(--s3);align-items:center;margin-top:var(--s5);font-size:14px;color:var(--text-tertiary)}
+.ghost{height:40px;padding:0 var(--s4);border-radius:var(--r-pill);border:1px solid var(--border-default);background:var(--surface-page);font:inherit;font-weight:600;cursor:pointer;transition:border-color 150ms ease}
+.ghost:hover{border-color:var(--text-primary)}
+.test{border:1px solid var(--border-hairline);border-radius:var(--r-lg);padding:var(--s6);background:var(--surface-tray)}
+.test p+p{margin-top:var(--s3)}
+.cta{display:inline-flex;align-items:center;height:52px;padding:0 var(--s5);border-radius:var(--r-pill);background:var(--accent);color:#fff;font-weight:600;text-decoration:none;margin-top:var(--s5);transition:background-color 150ms ease}
+.cta:hover{background:var(--accent-hover)}
+footer{border-top:1px solid var(--border-hairline);padding:var(--s6) 0;font-size:14px;color:var(--text-tertiary)}footer .rel{display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:12px}footer .rel a{color:inherit;text-decoration:none}footer .rel a:hover{text-decoration:underline}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap"><a class="brand" href="/">Pagetear</a><a class="ghost" style="display:inline-flex;align-items:center;text-decoration:none" href="https://cal.com/heyblake/pagetear?utm_source=guide&amp;utm_medium=owned&amp;utm_campaign=homepage-explains&amp;utm_content=nav">Book a call</a></div></header>
+<main id="main"><div class="wrap">
+<div class="hero"><p class="eyebrow">Guide</p><h1>How to tell whether your homepage explains the product</h1>
+<p class="lede">A new visitor should be able to say three things after reading your hero: what the product does, who it is for, and why they should believe it.</p>
+<ul class="three"><li>What it does<span>In plain words, not the category name.</span></li><li>Who it is for<span>So the right reader stays.</span></li><li>Why to believe it<span>Proof a cautious buyer can check.</span></li></ul>
+<p class="lede">The seven checks below take about ten minutes. You run them yourself: no tool, and no score. The examples come from public B2B homepages we read on Nov 6, 2026. Companies aren&#8217;t named, and every rewrite is marked as illustrative.</p></div>
+<section aria-labelledby="checks-h"><h2 id="checks-h">The seven checks</h2><p class="sub">Tick each one your page passes. The boxes only save in this browser.</p>
+<ol class="list"><li class="card" id="c1"><label class="row"><input type="checkbox" data-k="c1"><span class="n">01</span><span class="t">The headline says what the product does</span></label><div class="body"><p class="q">Read only the H1. Could a stranger repeat what the product does?</p><p>Watch for headlines that are only a category keyword (“[Category] Software for [Category] Automation”) or only a slogan (“[Industry] is messy. Your AI shouldn’t be.”). A category line can be clear for a buyer who already knows that category. It is not a universally wrong headline. It fails this check when a visitor who does not know the category still cannot say what happens after they buy.</p><p class="obs">Observed on a public B2B homepage on Nov 6, 2026. A claims-automation company’s H1 was its search keyword, and its About page had the clearer line: “The right fix before a truck rolls.”</p><p class="fix">Illustrative fix, not tested on that site. If the buyer does not already know the category, lead with the plain outcome and put the category in smaller text above it.</p></div></li><li class="card" id="c2"><label class="row"><input type="checkbox" data-k="c2"><span class="n">02</span><span class="t">It names the buyer</span></label><div class="body"><p class="q">Can the reader tell in one glance whether the page is for them?</p><p>Watch for a page that serves two buyers with different jobs (a contractor and a property owner, say) under one generic line. The About page often names a third audience.</p><p class="obs">Observed on a public B2B homepage on Nov 6, 2026. One construction platform named “owners and builders” on the homepage, “every contractor” on its About page, and a third group in its funding news.</p><p class="fix">Illustrative fix, not tested on that site. Two short paths in the hero, one per buyer, each in that buyer’s words.</p></div></li><li class="card" id="c3"><label class="row"><input type="checkbox" data-k="c3"><span class="n">03</span><span class="t">Check how the names on the page relate</span></label><div class="body"><p class="q">If someone reads your announcement and clicks through, do they find the same name?</p><p class="obs">Observed on a public B2B homepage on Nov 6, 2026. On one public audit homepage, a press launch used one product name and the page used another for what might be the same AI employee. That is an uncertain relationship, not a proven defect. It could be two products, a feature name, or a rename.</p><p class="fix">Illustrative fix, not tested on that site. If a reader cannot tell how the names relate, add one sentence that connects them. Using one name everywhere is not required when the names are different products.</p></div></li><li class="card" id="c4"><label class="row"><input type="checkbox" data-k="c4"><span class="n">04</span><span class="t">Your best reason to believe sits above the fold</span></label><div class="body"><p class="q">What’s the one thing a cautious buyer worries about? Is the answer on the first screen?</p><p class="obs">Observed on a public B2B homepage on Nov 6, 2026. If the page offers a guarantee, check whether a cautious buyer can see what it covers and what it does not. This is a general check. It is not a finding about any one company.</p><p class="fix">Illustrative fix, not tested on that site. An illustrative pattern: state the promise next to the headline and link the limits beside it. Use it only for a guarantee whose scope is written down.</p></div></li><li class="card" id="c5"><label class="row"><input type="checkbox" data-k="c5"><span class="n">05</span><span class="t">Every number has a base, a period and a source</span></label><div class="body"><p class="q">For each stat, ask: out of what, over what period, and measured by whom?</p><p>Watch for the same number with two different labels on one page, two pages that quote different figures for what might be the same work, stats the page itself labels “illustrative” or “estimates”, and dashboard mockups showing sample totals that look real. Reconcile the definitions and the time windows before you treat two figures as a conflict. A share of the week and a count of hours can describe the same fact.</p><p class="fix">Illustrative fix, not tested on that site. One line of context under each number, or cut the number. An honest quote from a named customer, used with their permission, often does more than an unsourced percentage.</p></div></li><li class="card" id="c6"><label class="row"><input type="checkbox" data-k="c6"><span class="n">06</span><span class="t">Old names are gone (but don’t over-correct)</span></label><div class="body"><p class="q">After a rename, search the page for the old name.</p><p>Not everything you find is a mistake. A “We’re now called X” banner is deliberate. A legal entity name in the footer can stay. Look for the old name inside product screenshots, labels and alt text.</p><p class="obs">Observed on a public B2B homepage on Nov 6, 2026. On one renamed company’s public page, most mentions of the old name were intentional: the announcement banner and the legal name. A mention inside a product image is a check, not proof the rename was done wrong.</p></div></li><li class="card" id="c7"><label class="row"><input type="checkbox" data-k="c7"><span class="n">07</span><span class="t">Check what crawlers and AI answers read, separately from what people see</span></label><div class="body"><p class="q">Turn off JavaScript, or view the page source, and read the headline and stats again.</p><p>Rotating headlines can come out as word salad in the raw source (“Your imagination imagination expertise team brand…”). Animated counters can read as “0%” there. Visitors with JavaScript usually see the finished line, so a raw-source reading is not proof the page loses customers. Raw-source text can differ from the rendered page. Some search engines render JavaScript and some do not, and that behavior changes. Compare the source with the rendered page, then check how the URL is actually indexed before you assume a crawler missed the headline.</p><p class="fix">Illustrative fix, not tested on that site. Put a static text version of the headline in the HTML, then verify what is indexed.</p></div></li></ol>
+<div class="tools"><button type="button" class="ghost" id="reset">Clear my ticks</button></div></section>
+<section aria-labelledby="test-h"><div class="test"><h2 id="test-h">Run a ten-minute read test</h2>
+<p class="sub">This is an informal diagnostic, not a validated pass mark. Show the hero to a few people who match your buyer, for about five seconds each, and ask what the product does and who it is for. An optional heuristic, not a proven threshold: if about four out of five answers are close to your own one-line description, the hero may be clear enough to leave for now. If they are not, start with checks 1 and 2.</p>
+<p class="sub">A handful of conversations can show whether the hero is unclear. It does not prove a lift in demos. To learn whether a change helps, change one thing at a time and watch demo requests over a defined window.</p>
+<a class="cta" href="https://cal.com/heyblake/pagetear?utm_source=guide&amp;utm_medium=owned&amp;utm_campaign=homepage-explains&amp;utm_content=end">Book a call</a></div></section>
+</div></main>
+<footer><div class="wrap"><nav class="rel" aria-label="Related pages"><a href="/blog">Blog</a><a href="/guides/how-to-hire-a-saas-copywriter">Hiring guide</a><a href="/saas-copywriting-subscription">Subscription</a><a href="/compare/unlimited-copywriting-subscriptions">Unlimited plans</a><a href="/#car">Client reviews</a></nav><p>Pagetear. Written by Blake Emal. Examples are observations of public pages on Nov 6, 2026. Rewrites are illustrative and untested.</p></div></footer>
+<script>
+(function(){var K="pt-homepage-checks";var s={};try{s=JSON.parse(localStorage.getItem(K)||"{}")}catch(e){}
+var boxes=document.querySelectorAll('input[data-k]');
+function paint(b){b.closest('.card').classList.toggle('done',b.checked)}
+boxes.forEach(function(b){b.checked=!!s[b.dataset.k];paint(b);b.addEventListener('change',function(){s[b.dataset.k]=b.checked;paint(b);try{localStorage.setItem(K,JSON.stringify(s))}catch(e){}})});
+document.getElementById('reset').addEventListener('click',function(){s={};boxes.forEach(function(b){b.checked=false;paint(b)});try{localStorage.removeItem(K)}catch(e){}});})();
+</script></body></html>
