@@ -151,13 +151,24 @@ def main():
                 page.screenshot(path=str(SHOTS / "homepage_desktop_cal_modal.png"))
             page.keyboard.press("Escape")
 
+            def layout_ok(path):
+                metrics = page.evaluate("""() => ({
+                  overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+                  pixel: document.fonts.check('16px "Geist Pixel"') || document.fonts.check('400 16px "Geist Pixel"')
+                })""")
+                check(metrics["overflow"] <= 1, f"{label} {path} horizontal overflow {metrics['overflow']}")
+                check(metrics["pixel"], f"{label} {path} Geist Pixel loaded")
+
             for path in BLOG:
                 page.goto(base + path, wait_until="domcontentloaded")
+                page.evaluate("() => document.fonts.ready")
                 html = page.content()
                 check("Client reviews" in html and 'href="/#car"' in html, f"{label} {path} reviews nav")
                 check("See recent work" not in html, f"{label} {path} no misleading label")
                 check('cal.com/heyblake/pagetear"' not in html, f"{label} {path} no bare cal")
                 check("utm_source=blog" in html, f"{label} {path} blog utm")
+                check("noindex" not in html.lower(), f"{label} {path} no noindex")
+                layout_ok(path)
                 if path != "/blog/":
                     link = page.locator("a.btn-secondary")
                     check(link.inner_text().strip() == "Read client reviews", f"{label} {path} secondary label")
@@ -190,14 +201,42 @@ def main():
 
             for path in GUIDES:
                 page.goto(base + path, wait_until="domcontentloaded")
+                page.evaluate("() => document.fonts.ready")
                 text = page.locator("body").inner_text()
                 html = page.content()
                 for banned in BANNED:
                     check(banned not in text and banned not in html, f"{label} {path} lacks {banned}")
                 check("noindex" not in html.lower(), f"{label} {path} indexable")
+                check('rel="canonical" href="https://www.pagetear.com/' in html, f"{label} {path} canonical")
+                layout_ok(path)
+                link = page.locator('a[href*="cal.com/heyblake/pagetear"]').first
+                href = link.get_attribute("href") or ""
+                check("utm_source=" in href and "utm_content=" in href, f"{label} {path} cal tags")
+                if link.get_attribute("data-cal-link"):
+                    link.click()
+                    page.wait_for_timeout(2000)
+                    modal = page.locator("iframe").evaluate_all("els => els.map(e => e.src).filter(s => s.includes('cal.com'))")
+                    check(page.url.startswith(base) and modal, f"{label} {path} cal modal {modal[:1]}")
+                    page.keyboard.press("Escape")
+                    page.wait_for_timeout(300)
+                elif label == "desktop":
+                    with page.expect_navigation(timeout=20000):
+                        link.click()
+                    check("Copywriting" in page.title() and "cal.com/heyblake/pagetear" in page.url, f"{label} {path} cal event {page.title()} {page.url}")
+                    page.go_back(wait_until="domcontentloaded")
             page.goto(base + "/guides/homepage-explains-the-product/", wait_until="domcontentloaded")
             check(page.locator('input[type="checkbox"]').count() == 7, f"{label} seven checkboxes")
-            page.locator('input[type="checkbox"]').first.check()
+            page.locator('input[type="checkbox"]').nth(0).check()
+            page.locator('input[type="checkbox"]').nth(2).check()
+            page.reload(wait_until="domcontentloaded")
+            kept = page.locator('input[type="checkbox"]').evaluate_all("els => els.map(el => el.checked)")
+            check(kept[0] and not kept[1] and kept[2], f"{label} checklist restored {kept}")
+            page.locator("#reset").click()
+            cleared = page.locator('input[type="checkbox"]').evaluate_all("els => els.every(el => !el.checked)")
+            check(cleared, f"{label} checklist reset")
+            page.reload(wait_until="domcontentloaded")
+            still = page.locator('input[type="checkbox"]').evaluate_all("els => els.every(el => !el.checked)")
+            check(still, f"{label} checklist stays reset")
             check("score" not in page.locator("body").inner_text().lower().replace("no score", ""), f"{label} ticking does not create a score")
             check(page.locator("a.cta").inner_text().strip() == "Book a call", f"{label} guide CTA")
             if label == "mobile":

@@ -88,6 +88,11 @@ def revert_blog(text: str, campaign: str, placements: list[str], secondary: bool
         '      <a href="/compare/unlimited-copywriting-subscriptions">Unlimited plans</a>\n'
     )
     text = text.replace(extra_links, "")
+    text = text.replace("url('/v2r3/GeistPixel-Square.woff2')", "url('/GeistPixel-Square.woff2')")
+    text = text.replace(
+        "    footer.site-footer .footer-links {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 28px;\n    }",
+        "    footer.site-footer .footer-links {\n      display: flex;\n      gap: 28px;\n    }",
+    )
     return text
 
 
@@ -198,6 +203,28 @@ def main() -> int:
     check("localStorage" in guide and "mailto:" not in guide and "score" not in guide.lower().replace("no score", ""), "manual ticks, no score or email")
     check('href="/guides/homepage-explains-the-product"' in (ROOT / "guides/how-to-hire-a-saas-copywriter/index.html").read_text(), "hire guide links the checklist")
     check("homepage-explains-the-product" in sm, "sitemap lists the homepage guide")
+    robots = (ROOT / "robots.txt").read_text()
+    check("Allow: /" in robots and "Sitemap: https://www.pagetear.com/sitemap.xml" in robots, "robots allows crawl and points at sitemap")
+    check("noindex" not in robots.lower(), "robots has no noindex")
+    for rel in pages:
+        text = (ROOT / rel).read_text()
+        check("url('/GeistPixel-Square.woff2')" not in text, f"{rel} no root pixel woff2")
+        check("url('/v2r3/GeistPixel-Square.woff2')" in text, f"{rel} pixel font uses existing v2r3 file")
+        check('rel="canonical" href="https://www.pagetear.com/' in text, f"{rel} www canonical")
+        check('name="robots"' not in text and "noindex" not in text.lower(), f"{rel} no noindex")
+        if rel != "blog/index.html":
+            check('src="/blog/_assets/blake-avatar.png"' in text, f"{rel} keeps missing avatar path")
+    for path in seo:
+        if path.suffix != ".html":
+            continue
+        text = path.read_text()
+        check('rel="canonical" href="https://www.pagetear.com/' in text, f"{path.parent.name} www canonical")
+        check("noindex" not in text.lower(), f"{path.parent.name} html has no noindex")
+        check("/v2r3/GeistPixel-Square.woff2" in text, f"{path.parent.name} loads pixel font from v2r3")
+    home = ROOT / "deploy-out" / "index.html"
+    if home.is_file():
+        import hashlib
+        check(hashlib.sha1(home.read_bytes()).hexdigest() == "47dff44aedd2f9290622f9c26fd2c5922fc87c2e", "deploy homepage sha")
 
     print(f"\n{len(failures)} failures")
     return 1 if failures else 0
